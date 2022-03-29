@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}
+Home
+{% endblock title %}
+{% block body %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="font-monospace text-white text-center mt-3">Welcome to Digital Library
+            {% if request.user.id is not none %}
+            {{request.user.first_name}} {{request.user.last_name}}
+            {% endif %}
+        </h1>
+    </div>
+</div>
+{% endblock body %}

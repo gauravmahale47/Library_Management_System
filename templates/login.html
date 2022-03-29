@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}
+Login
+{% endblock title %}
+{% block body %}
+<div class="row mb-2">
+  <div class="col-12">
+    <h1 class="font-monospace text-dark text-center text-white">Login Here</h1>
+  </div>
+</div>
+
+{% if messages %}
+<div class="row">
+  <div class="col-sm-12 mb-2">
+    {% for message in messages %}
+    <h5 class="font-monospace text-dark text-center text-white">{{message}}</h5>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+<div class="row">
+  <div class="col-1 col-lg-4"></div>
+  <div class="col-10 col-lg-4 mb-3 text-white">
+    <form method="post">
+      {% csrf_token %}
+      {{form.as_p}}
+      <div class="text-end">
+        <input type="submit" class="font-monospace text-uppercase btn btn-light text-dark " value="Login">
+      </div>
+    </form>
+  </div>
+  <div class="col-1 col-lg-4"></div>
+</div>
+{% endblock body %}
